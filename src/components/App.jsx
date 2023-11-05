@@ -1,7 +1,12 @@
-import { StyledAppContainer, StyledNavLink } from 'App.styled';
-import { Suspense, lazy } from 'react';
+import { StyledAppContainer } from 'App.styled';
+import { Suspense, lazy, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Loader from './Loader';
+import Navigation from './Navigation';
+import { useDispatch } from 'react-redux';
+import { refreshThunk } from 'redux/authReducer';
+import PrivateRoute from './PrivateRoute';
+import RestrictedRoute from './RestrictedRoute';
 
 const HomePage = lazy(() => import('../pages/HomePage'));
 const ContactsPage = lazy(() => import('../pages/ContactsPage'));
@@ -10,11 +15,36 @@ const RegisterPage = lazy(() => import('../pages/RegisterPage'));
 
 const appRoutes = [
   { path: '/', element: <HomePage /> },
-  { path: '/contacts', element: <ContactsPage /> },
-  { path: '/login', element: <LoginPage /> },
-  { path: '/register', element: <RegisterPage /> },
+  {
+    path: '/contacts',
+    element: (
+      <PrivateRoute>
+        <ContactsPage />
+      </PrivateRoute>
+    ),
+  },
+  {
+    path: '/login',
+    element: (
+      <RestrictedRoute>
+        <LoginPage />
+      </RestrictedRoute>
+    ),
+  },
+  {
+    path: '/register',
+    element: (
+      <RestrictedRoute>
+        <RegisterPage />
+      </RestrictedRoute>
+    ),
+  },
 ];
 export const App = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(refreshThunk());
+  }, [dispatch]);
   return (
     // <div className={css.container}>
     //   <h1>Phonebook</h1>
@@ -24,23 +54,7 @@ export const App = () => {
     //   <ContactsList />
     // </div>
     <StyledAppContainer>
-      <header>
-        <nav>
-          <StyledNavLink className="header-link" to="/">
-            Home
-          </StyledNavLink>
-          <StyledNavLink className="header-link" to="/contacts">
-            Contacts
-          </StyledNavLink>
-          <StyledNavLink className="header-link" to="/login">
-            Login
-          </StyledNavLink>
-          <StyledNavLink className="header-link" to="/register">
-            Register
-          </StyledNavLink>
-        </nav>
-      </header>
-
+      <Navigation />
       <Suspense fallback={<Loader />}>
         <Routes>
           {appRoutes.map(({ path, element }) => (

@@ -4,12 +4,15 @@ import { App } from 'components/App';
 import './index.css';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
-import { store } from 'redux/store';
+import { persistor, store } from 'redux/store';
+import { PersistGate } from 'redux-persist/integration/react';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <BrowserRouter>
+  <BrowserRouter basename="/goit-react-hw-08-phonebook">
     <Provider store={store}>
-      <App />
+      <PersistGate persistor={persistor}>
+        <App />
+      </PersistGate>
     </Provider>
   </BrowserRouter>
 );

@@ -1,20 +1,16 @@
-import axios from 'axios';
-
-const contactsInstance = axios.create({
-  baseURL: 'https://653bb37ad5d6790f5ec7493c.mockapi.io/',
-});
+import { phoneBookInstance } from './phoneBookApi';
 
 export const requestContacts = async () => {
-  const { data } = await contactsInstance.get('/contacts');
+  const { data } = await phoneBookInstance.get('/contacts');
   return data;
 };
 
 export const requestAddContacts = async newContact => {
-  const { data } = await contactsInstance.post('/contacts', newContact);
+  const { data } = await phoneBookInstance.post('/contacts', newContact);
   return data;
 };
 
 export const requestDeleteContacts = async contactId => {
-  const { data } = await contactsInstance.delete(`/contacts/${contactId}`);
+  const { data } = await phoneBookInstance.delete(`/contacts/${contactId}`);
   return data;
 };

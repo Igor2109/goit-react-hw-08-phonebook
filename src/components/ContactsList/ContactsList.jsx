@@ -19,11 +19,11 @@ export const ContactsList = () => {
   return (
     <ul className={css.list}>
       {contactsFilter.map(contact => {
-        const { id, name, phone } = contact;
+        const { id, name, number } = contact;
         return (
           <li className={css.contacts} key={id}>
             <span>{name}:</span>
-            <span>{phone}</span>
+            <span>{number}</span>
             <button
               type="button"
               className={css.btnDelete}
