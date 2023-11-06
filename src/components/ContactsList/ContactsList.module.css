@@ -13,6 +13,7 @@
   gap: 10px;
   border: 2px solid rgb(246, 209, 134);
   border-radius: 15px;
+  transition: all 250ms ease-in;
 
   &:hover,
   &:focus {
@@ -24,7 +25,12 @@
     transition: all 0.3s ease-in-out;
   }
 }
-
+.contacts:is(:hover, :focus) {
+  transform: scale(1.1);
+}
+.contacts:not(:last-child) {
+  margin-bottom: 10px;
+}
 .btnDelete {
   min-width: 100px;
   height: 30px;
