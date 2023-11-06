@@ -8,9 +8,14 @@
   align-items: center;
   flex-direction: column;
 }
-/* .navContainer {
+.navContainer {
   display: flex;
-} */
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+  align-items: center;
+}
 .home {
   margin-left: 40px;
 }
@@ -50,6 +55,38 @@
   position: relative;
   z-index: 0;
   border-radius: 10px;
+}
+@media only screen and (max-width: 475px) {
+  .home {
+    padding: 10px;
+    margin-left: 0;
+  }
+  .headerLink {
+    padding: 10px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  /* .container {
+    width: 375px;
+    padding: 0px;
+  } */
+  .navContainer {
+    display: inline-block;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .home {
+    padding: 10px;
+    margin-left: 40px;
+  }
+  .headerLink {
+    padding: 10px;
+    margin-left: 15px;
+  }
 }
 
 .btnDelete:before {

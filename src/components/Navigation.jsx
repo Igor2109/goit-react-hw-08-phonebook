@@ -14,17 +14,17 @@ const Navigation = () => {
         </StyledNavLink>
         {authenticated ? (
           <>
-            <StyledNavLink className="header-link" to="/contacts">
+            <StyledNavLink className={css.headerLink} to="/contacts">
               Contacts
             </StyledNavLink>
             <UserMenu />
           </>
         ) : (
           <>
-            <StyledNavLink className="header-link" to="/login">
+            <StyledNavLink className={css.headerLink} to="/login">
               Login
             </StyledNavLink>
-            <StyledNavLink className="header-link" to="/register">
+            <StyledNavLink className={css.headerLink} to="/register">
               Register
             </StyledNavLink>
           </>
