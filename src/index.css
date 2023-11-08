@@ -15,7 +15,7 @@ code {
 .container {
   color: white;
   background-color: #7d7c6c;
-  width: 320px;
+  min-width: 320px;
   min-height: 100vh;
   /* padding: 44px; */
   display: flex;

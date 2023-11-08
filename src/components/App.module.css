@@ -58,11 +58,11 @@
 }
 @media only screen and (max-width: 767px) {
   .home {
-    padding: 5px;
+    padding: 20px;
     margin-left: 20px;
   }
-  .headerLink {
-    padding: 5px;
+  .header-Link {
+    padding: 10px;
   }
   .navContainer {
     gap: 15px;
