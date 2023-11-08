@@ -15,34 +15,41 @@ code {
 .container {
   color: white;
   background-color: #7d7c6c;
-  min-width: 320px;
+  width: 320px;
   min-height: 100vh;
-  padding: 44px;
+  /* padding: 44px; */
   display: flex;
   align-items: center;
   flex-direction: column;
 }
-/* @media only screen and (max-width: 425px) {
+@media only screen and (min-width: 425px) {
   .container {
-    max-width: 375px;
-    padding: 0px;
+    width: 425px;
   }
-  .headerLink {
-    padding: 0;
-  }
-} */
-/* .navContainer {
-  display: flex;
-} */
+}
 @media only screen and (min-width: 768px) {
   .container {
     min-width: 768px;
     padding: 0px;
   }
+  .navContainer {
+    gap: 20px;
+  }
 }
 @media only screen and (min-width: 1024px) {
   .container {
-    min-width: 1024px;
+    width: 1024px;
+  }
+}
+@media only screen and (min-width: 1140px) {
+  .container {
+    min-width: 1140px;
+    padding: 0px;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .container {
+    min-width: 1280px;
     padding: 0px;
   }
 }
