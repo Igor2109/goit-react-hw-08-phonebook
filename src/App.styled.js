@@ -14,7 +14,7 @@ export const StyledAppContainer = styled.div`
 `;
 
 export const StyledNavLink = styled(NavLink)`
-  color: black;
+  color: wheat;
 
   border: 1px solid black;
   border-radius: 10px;
